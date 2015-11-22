@@ -76,7 +76,7 @@ func PostTripLocations(rw http.ResponseWriter, request *http.Request, p httprout
 	var sortSlice []SortedSlice
 	req, _ := ioutil.ReadAll(request.Body)
 	json.Unmarshal(req, &input)
-	session, err := mgo.Dial("mongodb://cmpe273A2:cmpe273@ds045054.mongolab.com:45054/crud")
+	session, err := mgo.Dial("mongodb://cmpe273:cmpe273@ds045054.mongolab.com:45054/crud")
 	if err != nil {
 		defer session.Close()
 	}
@@ -183,7 +183,7 @@ func PostTripLocations(rw http.ResponseWriter, request *http.Request, p httprout
 
 func GetTripLocations(rw http.ResponseWriter, request *http.Request, p httprouter.Params) {
 	params, _ := strconv.Atoi(p.ByName("tripid"))
-	session, err := mgo.Dial("mongodb://cmpe273A2:cmpe273@ds045054.mongolab.com:45054/crud")
+	session, err := mgo.Dial("mongodb://cmpe273:cmpe273@ds045054.mongolab.com:45054/crud")
 	if err != nil {
 		defer session.Close()
 	}
@@ -204,7 +204,7 @@ func Sorting(Array []string, Starting_from_location_id string) []SortedSlice {
 	var data Database
 	var total float64
 	sortSlice := make([]SortedSlice, len(Array)-1)
-	session, err := mgo.Dial("mongodb://cmpe273A2:cmpe273@ds045054.mongolab.com:45054/crud")
+	session, err := mgo.Dial("mongodb://cmpe273:cmpe273@ds045054.mongolab.com:45054/crud")
 	if err != nil {
 		defer session.Close()
 	}
@@ -257,7 +257,7 @@ func PutTripLocations(rw http.ResponseWriter, request *http.Request, p httproute
 	var status string
 	var m Message
 	params, _ := strconv.Atoi(p.ByName("tripid"))
-	session, err := mgo.Dial("mongodb://cmpe273A2:cmpe273@ds045054.mongolab.com:45054/crud")
+	session, err := mgo.Dial("mongodb://cmpe273:cmpe273@ds045054.mongolab.com:45054/crud")
 	if err != nil {
 		defer session.Close()
 	}
@@ -311,7 +311,7 @@ func PutTripLocations(rw http.ResponseWriter, request *http.Request, p httproute
 func getDetails(start string, end string) (string, float64, string) {
 	var jsonInt interface{}
 	var data Database
-	session, err := mgo.Dial("mongodb://cmpe273A2:cmpe273@ds045054.mongolab.com:45054/crud")
+	session, err := mgo.Dial("mongodb://cmpe273:cmpe273@ds045054.mongolab.com:45054/crud")
 	if err != nil {
 		defer session.Close()
 	}
